@@ -1,8 +1,9 @@
 name: Swift Coverage Test
 description: Extract test coverage information for a swift package.
 
-secrets:
-    DEPLOYSSHSECRET:
+inputs:
+    privateKey:
+        description: The private ssh key.
         required: true
 
 runs:
@@ -15,7 +16,7 @@ runs:
         if: ${{ always() }}
         uses: webfactory/ssh-agent@v0.5.4
         with:
-          ssh-private-key: ${{ secrets.DEPLOYSSHSECRET }} 
+          ssh-private-key: ${{ inputs.privateKey }} 
 
       - name: Checkout repo
         if: ${{ always() }}
