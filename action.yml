@@ -1,6 +1,10 @@
 name: Swift Coverage Test
 description: Extract test coverage information for a swift package.
 
+secrets:
+    DEPLOYSSHSECRET:
+        required: true
+
 runs:
     using: 'composite'
 
