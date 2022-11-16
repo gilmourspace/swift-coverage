@@ -14,22 +14,18 @@ runs:
       - uses: gilmourspace/install-swift@main
 
       - name: Setup SSH Key
-        if: ${{ always() }}
         uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ inputs.ssh-private-key }} 
 
       - name: Checkout repo
-        if: ${{ always() }}
         uses: actions/checkout@v2
 
       - name: Run tests
-        if: ${{ always() }}
         run: swift test --enable-code-coverage
         shell: bash
 
       - name: Coverage Test
-        if: ${{ always() }}
         uses: mattpolzin/swift-codecov-action@0.7.3
         id: cov
         with:
