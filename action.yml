@@ -11,8 +11,6 @@ runs:
     using: 'composite'
 
     steps:
-      - uses: gilmourspace/install-swift@main
-
       - name: Setup SSH Key
         uses: webfactory/ssh-agent@v0.5.4
         with:
